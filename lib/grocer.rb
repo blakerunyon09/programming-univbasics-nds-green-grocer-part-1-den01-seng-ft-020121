@@ -1,24 +1,14 @@
-list = [
-    {:item => "BLACK_BEANS", :price => 2.50, :clearance => false},
-    {:item => "AVOCADO", :price => 3.00, :clearance => true},
-    {:item => "AVOCADO", :price => 3.00, :clearance => true},
-    {:item => "KALE", :price => 3.00, :clearance => false},
-    {:item => "BLACK_BEANS", :price => 2.50, :clearance => false},
-    {:item => "BLACK_BEANS", :price => 2.50, :clearance => false},
-    {:item => "ALMONDS", :price => 9.00, :clearance => false},
-  ]
-
-def find_item_by_name_in_collection(name, collection)
-  collection.map { |items|
-    items.map { |k, v|
-      if v === name
-        return item_hash = {k => v}
-      end
-    }
-  }
-nil
-end
-
+#def find_item_by_name_in_collection(name, collection)
+#  collection.map { |items|
+#    items.map { |k, v|
+#      if v === name
+#        return item_hash = {k => v}
+#      end
+#    }
+#  }
+#nil
+#end
+#
 #def consolidate_cart(old_cart)
 #new_cart = []
 #old_cart.map { |e_old|
@@ -35,6 +25,18 @@ end
 #}
 #new_cart
 #end
+
+
+def find_item_by_name_in_collection(name, collection)
+  index = 0
+
+  collection.each do |grocery_item|
+    return grocery_item if grocery_item[:item] === name
+    index += 1
+  end
+
+  nil
+end
 
 def consolidate_cart(cart)
   index = 0
